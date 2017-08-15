@@ -14,7 +14,7 @@ INSTALL_DIR="$VENDOR_DIR/imagemagick"
 mkdir -p $INSTALL_DIR
 IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.5-10}"
 # CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.gz" # uncomment this line when ready to cache again
-CACHE_FILE="$CACHE_DIR/imagemagick-cache-buster-$IMAGE_MAGICK_VERSION.tar.gz"
+CACHE_FILE="$CACHE_DIR/imagemagick-cache-buster2-$IMAGE_MAGICK_VERSION.tar.gz"
 
 if [ ! -f $CACHE_FILE ]; then
   # install imagemagick
@@ -43,7 +43,7 @@ if [ ! -f $CACHE_FILE ]; then
     rm pkg.deb
   }
  
-  packages = libgvc6_2.38.0-12ubuntu2_amd64.deb
+  packages=libgvc6_2.38.0-12ubuntu2_amd64.deb
   
   install_dir=heroku-buildpack-imagemagick
   mkdir -p "$1/$install_dir"
