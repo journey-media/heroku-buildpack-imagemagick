@@ -51,7 +51,7 @@ if [ ! -f $CACHE_FILE ]; then
   base_url="http://archive.ubuntu.com/ubuntu/pool/main/g/graphviz"
   echo "Installing the following packages:"
   for p in "${packages[@]}"; do
-   echo "    * $p" | i
+   echo "    * $p"
    install "$base_url/$p" "$1/$install_dir"
   done
 
