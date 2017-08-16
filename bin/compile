@@ -54,6 +54,9 @@ if [ ! -f $CACHE_FILE ]; then
    echo "    * $p"
    install "$base_url/$p" "$1/$install_dir"
   done
+  
+  echo "Dependencies installed at: $1/$install_dir"
+  
 
   echo "-----> Building ImageMagick"
   cd $IMAGE_MAGICK_DIR
@@ -92,9 +95,10 @@ EOF
 echo "-----> Updating environment variables"
 PROFILE_PATH="$BUILD_DIR/.profile.d/imagemagick.sh"
 ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick"
+DEPENDENCY_INSTALL_PATH="$HOME/heroku-buildpack-imagemagick/usr/lib"
 mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
-echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=$DEPENDENCY_INSTALL_PATH:\$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH" >> $PROFILE_PATH
 echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
 
 # DOWNLOAD_URL="http://www.imagemagick.org/download/ImageMagick-6.9.2-0.tar.gz"
