@@ -60,15 +60,15 @@ if [ ! -f $CACHE_FILE ]; then
   
   echo "Dependencies installed at: $1/$install_dir"
   
-#
- # echo "-----> Building ImageMagick"
+
+  echo "-----> Building ImageMagick"
   cd $IMAGE_MAGICK_DIR
- # export CPPFLAGS="-I$INSTALL_DIR/include"
- # export LDFLAGS="-L$INSTALL_DIR/lib"
- # ./configure --prefix=$INSTALL_DIR
- # make && make install
+  export CPPFLAGS="-I$INSTALL_DIR/include"
+  export LDFLAGS="-L$INSTALL_DIR/lib"
+  ./configure --prefix=$INSTALL_DIR
+  make && make install
   cd ..
- # rm -rf $IMAGE_MAGICK_DIR
+  rm -rf $IMAGE_MAGICK_DIR
 
   # cache for future deploys
   echo "-----> Caching ImageMagick installation"
