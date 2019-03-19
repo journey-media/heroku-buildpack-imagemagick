@@ -4,7 +4,7 @@ indent() {
   sed -u 's/^/       /'
 }
 
-echo "-----> Install ImageMagick"
+echo "-----> Install ImageMagick "
 
 BUILD_DIR=$1
 CACHE_DIR=$2
