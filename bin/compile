@@ -88,6 +88,8 @@ else
   # cache exists, extract it
   echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
   tar xzf $CACHE_FILE -C $VENDOR_DIR
+  echo "verify ImageMagick version and features"
+  $VENDOR_DIR/imagemagick/bin/magick -version
 fi
 
 echo "-----> Writing policy file"
