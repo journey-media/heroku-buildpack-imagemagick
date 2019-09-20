@@ -80,16 +80,13 @@ if [ ! -f $CACHE_FILE ]; then
   echo Current Directory
   ls
   file $REL_INSTALL_DIR.tar.gz
-  file $CACHE_FILE
-  echo "About to move rel_install_dir.tar.gz to cache_file ($REL_INSTALL_DIR.tar.giz -- $CACHE_FILE)"
+  echo "About to move rel_install_dir.tar.gz to cache_file ($REL_INSTALL_DIR.tar.gz -- $CACHE_FILE)"
   mv $REL_INSTALL_DIR.tar.gz $CACHE_FILE
 
 else
   # cache exists, extract it
   echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
   tar xzf $CACHE_FILE -C $VENDOR_DIR
-  echo "verify ImageMagick version and features"
-  $VENDOR_DIR/imagemagick/bin/magick -version
 fi
 
 echo "-----> Writing policy file"
@@ -112,6 +109,10 @@ mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
 echo "export LD_LIBRARY_PATH=$DEPENDENCY_INSTALL_PATH:\$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH" >> $PROFILE_PATH
 echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
+
+echo "verify ImageMagick version and features"
+$ACTUAL_INSTALL_PATH/bin/magick -version
+
 
 # DOWNLOAD_URL="http://www.imagemagick.org/download/ImageMagick-6.9.2-0.tar.gz"
 
