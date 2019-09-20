@@ -77,7 +77,7 @@ if [ ! -f $CACHE_FILE ]; then
   tar czf $REL_INSTALL_DIR.tar.gz $REL_INSTALL_DIR
   
   
-  echo Current Directory
+  echo Current Directory  
   ls
   file $REL_INSTALL_DIR.tar.gz
   echo "About to move rel_install_dir.tar.gz to cache_file ($REL_INSTALL_DIR.tar.gz -- $CACHE_FILE)"
@@ -109,9 +109,10 @@ mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
 echo "export LD_LIBRARY_PATH=$DEPENDENCY_INSTALL_PATH:\$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH" >> $PROFILE_PATH
 echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
+cat $PROFILE_PATH
 
 echo "verify ImageMagick version and features"
-$ACTUAL_INSTALL_PATH/bin/magick -version
+$VENDOR_DIR/bin/magick -version
 
 
 # DOWNLOAD_URL="http://www.imagemagick.org/download/ImageMagick-6.9.2-0.tar.gz"
