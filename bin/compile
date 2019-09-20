@@ -112,8 +112,7 @@ echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
 cat $PROFILE_PATH
 
 echo "verify ImageMagick version and features"
-$VENDOR_DIR/bin/magick -version
-
+tree -d $VENDOR_DIR
 
 # DOWNLOAD_URL="http://www.imagemagick.org/download/ImageMagick-6.9.2-0.tar.gz"
 
